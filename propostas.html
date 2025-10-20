@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Future A.I — Propostas</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="navbar">
+    <div class="logo">Future A.I</div>
+    <nav>
+      <ul>
+        <li><a href="analise.html">Análise</a></li>
+        <li><a href="propostas.html">Propostas</a></li>
+        <li><a href="resultado.html">Resultado</a></li>
+        <li><a href="index.html">Sair</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <h1>Propostas</h1>
+
+      <div class="propostas">
+        <div class="proposta" data-select="1">
+          <p><strong>Proposta 1</strong></p>
+          <p>R$ 1.000,00 em 12x R$ 104,16</p>
+          <p><strong>Total:</strong> R$ 1.250,00</p>
+        </div>
+
+        <div class="proposta" data-select="2">
+          <p><strong>Proposta 2</strong></p>
+          <p>R$ 1.000,00 em 8x R$ 133,33</p>
+          <p><strong>Total:</strong> R$ 1.200,00</p>
+        </div>
+
+        <div class="proposta" data-select="3">
+          <p><strong>Proposta 3</strong></p>
+          <p>R$ 1.000,00 em 4x R$ 125,00</p>
+          <p><strong>Total:</strong> R$ 1.150,00</p>
+        </div>
+      </div>
+
+      <form id="formProposta">
+        <label><input type="checkbox" id="chk1"> Li e estou de acordo com os Termos de Uso e Políticas de Privacidade</label>
+        <label><input type="checkbox" id="chk2"> Li e estou de acordo com os Termos do Contrato</label>
+
+        <button id="btnContratar" type="submit" disabled>Contratar</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const propostas = document.querySelectorAll('.proposta');
+    const btnContratar = document.getElementById('btnContratar');
+    const chk1 = document.getElementById('chk1');
+    const chk2 = document.getElementById('chk2');
+    let propostaSelecionada = null;
+
+    function atualizarBotao() {
+      if (propostaSelecionada && chk1.checked && chk2.checked) {
+        btnContratar.disabled = false;
+      } else {
+        btnContratar.disabled = true;
+      }
+    }
+
+    propostas.forEach(card => {
+      card.addEventListener('click', () => {
+        propostas.forEach(c => c.classList.remove('selecionada'));
+        card.classList.add('selecionada');
+        propostaSelecionada = card.getAttribute('data-select');
+        atualizarBotao();
+      });
+    });
+
+    chk1.addEventListener('change', atualizarBotao);
+    chk2.addEventListener('change', atualizarBotao);
+
+    document.getElementById('formProposta').addEventListener('submit', (e) => {
+      if (btnContratar.disabled) {
+        e.preventDefault();
+        alert("Selecione uma proposta e aceite os termos antes de contratar.");
+      } else {
+        alert("Proposta contratada com sucesso!");
+      }
+    });
+  </script>
+</body>
+</html>
