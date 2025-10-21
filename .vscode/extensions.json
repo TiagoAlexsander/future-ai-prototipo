@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ritwickdey.liveserver",
+    "github.copilot",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css"
+  ]
+}
