@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Future A.I — Análise</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="analise.css"/>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="navbar">
+    <div class="logo">Future A.I</div>
+    <nav>
+      <ul>
+        <li><a href="analise.html">Análise</a></li>
+        <li><a href="propostas.html">Propostas</a></li>
+        <li><a href="resultado.html">Resultado</a></li>
+        <li><a href="#" onclick="sair()">Sair</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="container grid-wide">
+      <h1 style="margin-bottom:1.5rem;">Análise de Dados</h1>
+
+      <!-- Botão que expande -->
+      <button id="btnArquivo" class="btnArquivoDados" type="button" onclick="expandirUpload()">
+        Arquivo de dados
+      </button>
+
+      <!-- Área de Upload -->
+      <div id="areaUpload" class="upload-container collapsible">
+        <h2>Dê upload no seu arquivo aqui</h2>
+        <div class="upload-box">
+          <input type="file" id="fileInput" accept=".csv,.xlsx,.xls,.json" hidden />
+          <label for="fileInput" class="upload-label">
+            <p>Clique para selecionar ou arraste o arquivo aqui</p>
+          </label>
+          <p class="upload-hint">Use um arquivo para preencher automaticamente seus dados</p>
+          <p id="fileName" class="file-name"></p>
+        </div>
+
+        <p class="upload-description">Dê upload no arquivo com suas informações relevantes</p>
+
+        <div class="upload-actions">
+          <button id="btnLimparArquivo" class="btnOutline" type="button" onclick="limparArquivo()" disabled>
+            Remover arquivo
+          </button>
+          <button class="btnFechar" type="button" onclick="fecharUpload()">Fechar</button>
+        </div>
+      </div>
+
+      <!-- Formulário de dados -->
+      <div class="card form-card" style="margin-top:1rem;">
+        <form id="formDadosSolicitante" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="nomeCompleto">Nome completo</label>
+              <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Seu nome completo"/>
+            </div>
+
+            <div class="field">
+              <label for="cpf">CPF</label>
+              <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__"/>
+            </div>
+
+            <div class="field">
+              <label for="nacionalidade">Nacionalidade</label>
+              <input type="text" id="nacionalidade" name="nacionalidade" placeholder="Brasileira, etc."/>
+            </div>
+
+            <div class="field">
+              <label for="profissao">Profissão</label>
+              <input type="text" id="profissao" name="profissao" placeholder="Sua profissão"/>
+            </div>
+
+            <div class="field">
+              <label for="rendaMensal">Renda mensal*</label>
+              <input type="number" id="rendaMensal" name="rendaMensal" step="0.01" min="0" placeholder="Ex.: 3500.00" required/>
+            </div>
+
+            <div class="field">
+              <label for="valorEmprestimo">Valor do empréstimo desejado*</label>
+              <input type="number" id="valorEmprestimo" name="valorEmprestimo" step="0.01" min="0" placeholder="Ex.: 10000.00" required/>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Histórico com outros bancos*</h3>
+
+            <div class="field">
+              <label>Possui conta em outros bancos?*</label>
+              <div class="yesno">
+                <input class="sr-only" type="radio" id="contaOutrosSim" name="contaOutros" value="sim" required>
+                <label class="btn-toggle" for="contaOutrosSim">Sim</label>
+                <input class="sr-only" type="radio" id="contaOutrosNao" name="contaOutros" value="nao" required>
+                <label class="btn-toggle" for="contaOutrosNao">Não</label>
+              </div>
+            </div>
+
+            <!-- Grupo extra (começa escondido) -->
+            <div id="grupo7extra" style="display:none;">
+              <div class="field">
+                <label>Já contratou empréstimos em outros bancos?</label>
+                <div class="yesno">
+                  <input class="sr-only" type="radio" id="jaEmprestimoSim" name="jaEmprestimo" value="sim">
+                  <label class="btn-toggle" for="jaEmprestimoSim">Sim</label>
+                  <input class="sr-only" type="radio" id="jaEmprestimoNao" name="jaEmprestimo" value="nao">
+                  <label class="btn-toggle" for="jaEmprestimoNao">Não</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="dividasTotais">Valor total de dívidas em outros bancos</label>
+                <input type="number" id="dividasTotais" name="dividasTotais" step="0.01" min="0" placeholder="Ex.: 2500.00"/>
+              </div>
+
+              <div class="field">
+                <label>Está com parcelas em dia?</label>
+                <div class="yesno">
+                  <input class="sr-only" type="radio" id="parcelasDiaSim" name="parcelasDia" value="sim">
+                  <label class="btn-toggle" for="parcelasDiaSim">Sim</label>
+                  <input class="sr-only" type="radio" id="parcelasDiaNao" name="parcelasDia" value="nao">
+                  <label class="btn-toggle" for="parcelasDiaNao">Não</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="duracaoMeses">Duração do empréstimo pretendida* (meses)</label>
+              <input type="number" id="duracaoMeses" name="duracaoMeses" min="1" placeholder="Ex.: 24" required/>
+            </div>
+
+            <div class="field">
+              <label for="finalidade">Finalidade do empréstimo</label>
+              <input type="text" id="finalidade" name="finalidade" placeholder="Ex.: Reforma, dívida, investimento…"/>
+            </div>
+
+            <div class="field">
+              <label for="emailContato">E-mail para contato</label>
+              <input type="email" id="emailContato" name="emailContato" placeholder="voce@exemplo.com"/>
+            </div>
+
+            <div class="field">
+              <label for="telefoneContato">Telefone para contato</label>
+              <input type="tel" id="telefoneContato" name="telefoneContato" placeholder="(xx) xxxxx-xxxx"/>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btnPrimary btnGrande">Gerar Proposta</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" style="display:grid; grid-template-columns: 1fr; gap: 1rem;">
+        <!-- Espaço para visualização futura -->
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="analise.js"></script>
+</body>
+</html>

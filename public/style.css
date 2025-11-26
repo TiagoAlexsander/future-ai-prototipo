@@ -1,0 +1,198 @@
+/* ===== FUTURE A.I - Estilos Globais Compartilhados ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --card-bg: #f9f9f9;
+  --primary-text: #111111;
+  --secondary-text: #555555;
+  --border-color: #e0e0e0;
+  --button-bg: #111111;
+  --button-text: #ffffff;
+  --border-radius: 6px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+  line-height: 1.6;
+}
+
+/* ===== Cabeçalho ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--secondary-text);
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-text);
+}
+
+/* ===== Layout Base ===== */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 64px);
+  padding: 2rem 1rem;
+}
+
+.container {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  max-width: 500px;
+  width: 100%;
+}
+
+.grid-wide {
+  max-width: 900px;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== Títulos ===== */
+h1, h2 {
+  color: var(--primary-text);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-text);
+  font-weight: 400;
+}
+
+/* ===== Formulários ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  color: var(--primary-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: #fff;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-text);
+}
+
+/* ===== Botões ===== */
+button {
+  padding: 0.75rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Links estilo botão */
+.linkBtn {
+  background: none;
+  color: var(--secondary-text);
+  text-decoration: underline;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.linkBtn:hover {
+  color: var(--primary-text);
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}

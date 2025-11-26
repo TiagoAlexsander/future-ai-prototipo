@@ -1,0 +1,57 @@
+/*** CSS para a página de login/cadastro ***/
+
+body:has(#loginBox) .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+body:has(#loginBox) .logo {
+  font-size: 1.2rem;
+}
+
+body:has(#loginBox) .page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 90px;
+}
+
+#loginBox,
+#cadastroTela {
+  max-width: 420px;
+}
+
+.dataNasc {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 0.5rem;
+}
+
+.aviso {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: -0.5rem;
+}
+
+.botoes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancelar {
+  background-color: #e0e0e0;
+  color: #111;
+}
+
+.cadastrar {
+  background-color: #111;
+  color: #fff;
+}

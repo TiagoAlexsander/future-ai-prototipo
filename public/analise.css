@@ -1,0 +1,255 @@
+/* ===== Estilos exclusivos da página de Análise ===== */
+
+/* Botão principal para abrir upload */
+.btnArquivoDados {
+  width: 100%;
+  padding: 2rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.btnArquivoDados:hover {
+  background-color: #333;
+}
+
+/* ===== Área de Upload ===== */
+.upload-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+}
+
+.upload-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-text);
+}
+
+.upload-box {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.upload-box:hover {
+  border-color: var(--button-bg);
+}
+
+.upload-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--secondary-text);
+}
+
+.upload-label p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.file-name {
+  display: none;
+  margin-top: 1rem;
+  color: var(--button-bg);
+  font-weight: 600;
+}
+
+.upload-description {
+  text-align: center;
+  color: var(--secondary-text);
+  margin-bottom: 1.5rem;
+}
+
+.upload-hint {
+  margin-top: 0.5rem;
+  color: var(--secondary-text);
+  font-size: 0.95rem;
+}
+
+.upload-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.upload-actions .btnOutline,
+.upload-actions .btnFechar {
+  width: auto;
+  min-width: 180px;
+}
+
+.btnFechar {
+  background-color: #000;
+  color: #fff;
+}
+
+.btnFechar:hover {
+  background-color: #333;
+}
+
+.btnOutline {
+  background: #fff;
+  color: #111;
+  border: 1px solid #e0e0e0;
+}
+
+/* ===== Container colapsável com animação ===== */
+.upload-container.collapsible {
+  padding: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+  transition:
+    max-height 450ms ease,
+    opacity 300ms ease,
+    padding 300ms ease,
+    transform 300ms ease;
+  will-change: max-height, opacity, padding, transform;
+}
+
+.upload-container.collapsible.is-open {
+  padding: 2rem;
+  padding-bottom: 3rem;
+  opacity: 1;
+  transform: translateY(0);
+  /* max-height é definido dinamicamente pelo JS */
+  overflow: visible;
+}
+
+/* ===== Formulário de dados ===== */
+.form-card {
+  background: #fff;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 0.7rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.form-section {
+  margin-top: 1rem;
+}
+
+.form-section h3 {
+  margin: 0 0 0.75rem;
+  text-align: left;
+  color: #111;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* ===== Botões Sim/Não ===== */
+.yesno {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute;
+  opacity: 0.001;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.btn-toggle {
+  padding: 0.55rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  background: #fafafa;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.btn-toggle:hover {
+  background: #f0f0f0;
+}
+
+.sr-only:checked + .btn-toggle {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 720px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Utilitário: esconder sem tirar do fluxo ===== */
+.hidden {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  text-align: center; /* centraliza o botão */
+}
+
+.btnGrande {
+  display: inline-block;
+  padding: 1.2rem 3rem;   /* aumenta o tamanho */
+  font-size: 1.3rem;      /* fonte maior */
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: var(--button-bg, #007bff); /* usa sua cor padrão */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btnGrande:hover {
+  background-color: var(--button-bg-hover, #0056b3);
+  transform: scale(1.05); /* efeito de destaque */
+}

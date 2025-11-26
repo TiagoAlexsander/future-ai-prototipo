@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Future A.I — Propostas</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="propostas.css"/>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="navbar">
+    <div class="logo">Future A.I</div>
+    <nav>
+      <ul>
+        <li><a href="analise.html">Análise</a></li>
+        <li><a href="propostas.html">Propostas</a></li>
+        <li><a href="resultado.html">Resultado</a></li>
+      <li><a href="#" onclick="sair()">Sair</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <h1>Propostas</h1>
+
+      <!-- Container onde as propostas serão geradas -->
+      <div id="propostasContainer" class="propostas"></div>
+
+      <form id="formProposta">
+        <label><input type="checkbox" id="chk1"> Li e estou de acordo com os Termos de Uso e Políticas de Privacidade</label>
+        <label><input type="checkbox" id="chk2"> Li e estou de acordo com os Termos do Contrato</label>
+
+        <button id="btnContratar" type="submit" disabled>Contratar</button>
+      </form>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="propostas.js"></script>
+</body>
+</html>

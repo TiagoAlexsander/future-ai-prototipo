@@ -1,0 +1,11 @@
+node_modules/
+**/node_modules/
+
+# Arquivos de ambiente e senhas (SEGURANÇA - Nunca subir)
+.env
+**/.env
+
+# Logs e arquivos de sistema
+npm-debug.log
+.DS_Store
+Thumbs.db
